@@ -1,0 +1,55 @@
+<head>
+    <title>multiview</title>
+</head>
+
+<body>
+</body>
+
+<template name="layout">
+  <div class="container">
+    <aside class="sidebar">
+      <div class="sidebar-inner">
+        {{yield 'sidebar'}}
+      </div>
+    </aside>
+    <section class="content">
+      <div class="content-inner">
+        {{yield}}
+      </div>
+    </section>
+
+  </div>
+
+</template>
+
+<template name="posts">
+    <h1>Posts</h1>
+    {{#with posts}}
+    <ul>{{#each this}}
+
+        <li>
+            {{> postListItem}}
+        </li>{{/each}}
+    </ul>
+    {{/with}}
+</template>
+
+<template name="postListItem">
+    <a href="{{pathFor 'postShow'}}">{{title}}</a>
+</template>
+
+<template name="postShow">
+  <p>{{body}}</p>
+</template>
+
+<template name="postShowSidebar">
+  <h1>{{title}}</h1>
+</template>
+
+<template name="notFound">
+  <h1>Not Found</h1>
+</template> 
+
+<template name="loading">
+  <h1>Loading</h1>
+</template>
